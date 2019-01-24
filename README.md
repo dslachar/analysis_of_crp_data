@@ -22,7 +22,6 @@
 ### Project presentation March 13th
 ### Project report due March 15th 
 
-=======
 ## Dataset Attributes
 
 We plan to use data from the Campaign Finance and Campaign Contributions tables. Interesting attributes include the following:
@@ -50,4 +49,3 @@ Additional attributes that are of interest, that do not have potential for clean
 
 Note that metadata can be found at the following site:
 https://www.opensecrets.org/resources/datadictionary/UserGuide.pdf
->>>>>>> HW2_davepalazzo_readme_attributes
