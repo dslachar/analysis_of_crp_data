@@ -1,7 +1,5 @@
 # analysis_of_crp_data
 
-<<<<<<< HEAD
-
 
 ## Team Members
 * Samantha Werdel
@@ -22,4 +20,4 @@
 
 ### Project presentation March 13th
 ### Project report due March 15th 
->>>>>>> HW2_srwerdel_readme_timeline
+
