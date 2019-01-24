@@ -9,5 +9,5 @@
 - Statistical summary: March 7th
 - Visualization: March 11th
 
-### Project presentaiton March 13th
+### Project presentation March 13th
 ### Project report due March 15th 
