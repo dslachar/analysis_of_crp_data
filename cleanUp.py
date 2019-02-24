@@ -1,6 +1,46 @@
 # Clean up for CRP Data
 import pandas as pd
 
+def clean_candidates(file):
+    '''Cleans candidates text file. Outputs dataframe'''
+    # read in text file to a dataframe
+    cands_df = pd.read_csv(file,sep='\|,\|',header=None)
+
+    # creates the columns for candidates data
+    cands_df.columns = ["Cycle", "FECTransID", "ContribID", "Contrib","RecipID",
+    "Orgname","UltOrg","RealCode","Date","CRPICO","RecipCode","NoPacs"]
+
+    # removes extra symbols
+    cands_df['Cycle'] = cands_df['Cycle'].map(lambda x: x.strip('|'))
+    cands_df["NoPacs"] = cands_df["NoPacs"].str.replace('|','')
+
+    return cands_df
+
+def clean_individuals(file):
+    '''Cleans individuals text file. Outputs dataframe'''
+    # read in text file to a dataframe
+    indivs_df = pd.read_csv(file,sep='\|,\|',header=None,engine='python')
+
+    # create the columns for individuals data
+    indivs_df.columns = ["Cycle", "FECTransID", "ContribID", "Contrib","RecipID",
+    "Orgname","UltOrg","RealCode","City","State","Zip","RecipCode","Type","CmteID",
+    "OtherID","Gender","Microfilm","Occupation","Employer","Source"]
+
+    # removes extra symbols
+    indivs_df['Cycle'] = indivs_df['Cycle'].map(lambda x: x.strip('|'))
+    indivs_df["Source"] = indivs_df["Source"].str.replace('|','')
+
+    # creates a new dataframe with RealCode, Data, Amount columns
+    real_df = indivs_df['RealCode'].apply(lambda x: pd.Series(str(x).split(',')))
+    real_df[0] = real_df[0].map(lambda x: x.strip('|'))
+    real_df.columns= ['RealCode','Date','Amount','NA']
+    # inserts new dataframe into individuals dataframe
+    indivs_df['RealCode'] = real_df['RealCode'].values
+    indivs_df.insert(8,'Date',real_df['Date'])
+    indivs_df.insert(9,'Amount',real_df['Amount'])
+
+    return indivs_df
+
 def cleanPac(filename):
     '''Cleans pacs txt file
         Parameters: 1) filename: txt file from CRP
@@ -11,7 +51,7 @@ def cleanPac(filename):
     # Clean cid, amount, date, realcode
     df = pac['CID'].apply(lambda x: pd.Series(str(x).split(',')))
     pac['CID'] = df[0]
-    pac.insert(4,'Amount',df[1])    
+    pac.insert(4,'Amount',df[1])
     pac.insert(5,'Date',df[2])
     pac.insert(6, 'RealCode',df[3])
     # Remove vertical bars
@@ -31,5 +71,3 @@ def clean_pac_to_pac(data_file):
                   'FECOccEmp','Primcode','Date,Amount,RecipID','Party','Otherid','RecipCode',
                   'RecipPrimcode','Amend','Report','PG','Microfilm','Type','RealCode','Source']
     return df
->>>>>>> 33ef3965bbef52a39290ee9f3cc6f92c17a982ba
->>>>>>> b5109476eaabb71ba663d215902595fb890a0d60
