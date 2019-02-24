@@ -1,6 +1,6 @@
 # Clean up for CRP Data
 
-def clean_pac_2_pac(data_file):
+def clean_pac_to_pac(data_file):
     """input: Center For Responsive Politics pac_2_pac text file
        output: cleaned dataframe containing text file data
      """
