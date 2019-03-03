@@ -39,6 +39,9 @@ def clean_individuals(file):
     indivs_df.insert(8,'Date',real_df['Date'])
     indivs_df.insert(9,'Amount',real_df['Amount'])
 
+    # pull out only the C0 individuals 
+    indivs.loc[indivs['State'] == 'CO']
+
     return indivs_df
 
 def cleanPac(filename):
