@@ -39,9 +39,6 @@ def clean_individuals(file):
     indivs_df.insert(8,'Date',real_df['Date'])
     indivs_df.insert(9,'Amount',real_df['Amount'])
 
-    # pull out only the C0 individuals 
-    indivs.loc[indivs['State'] == 'CO']
-
     return indivs_df
 
 def cleanPac(filename):
@@ -73,4 +70,13 @@ def clean_pac_to_pac(data_file):
     df.columns = ['Cycle','FECRecNo','Filerid','DonorCmte','ContribLendTrans','City','State','Zip',
                   'FECOccEmp','Primcode','Date,Amount,RecipID','Party','Otherid','RecipCode',
                   'RecipPrimcode','Amend','Report','PG','Microfilm','Type','RealCode','Source']
+    return df
+
+def get_state(data_frame):
+    '''This function takes in a dataframe and pulls out only the rows that have
+    Colorado as the State value.'''
+
+    # pull out only the C0 individuals
+    df = data_frame.loc[data_frame['State'] == 'CO']
+
     return df
