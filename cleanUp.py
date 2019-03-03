@@ -26,20 +26,23 @@ def clean_individuals(file):
     "Orgname","UltOrg","RealCode","City","State","Zip","RecipCode","Type","CmteID",
     "OtherID","Gender","Microfilm","Occupation","Employer","Source"]
 
+    # pull out only the C0 individuals
+    df = indivs_df.loc[indivs_df['State'] == 'CO']
+
     # removes extra symbols
-    indivs_df['Cycle'] = indivs_df['Cycle'].map(lambda x: x.strip('|'))
-    indivs_df["Source"] = indivs_df["Source"].str.replace('|','')
+    df['Cycle'] = df['Cycle'].map(lambda x: x.strip('|'))
+    df["Source"] = df["Source"].str.replace('|','')
 
     # creates a new dataframe with RealCode, Data, Amount columns
-    real_df = indivs_df['RealCode'].apply(lambda x: pd.Series(str(x).split(',')))
+    real_df = df['RealCode'].apply(lambda x: pd.Series(str(x).split(',')))
     real_df[0] = real_df[0].map(lambda x: x.strip('|'))
     real_df.columns= ['RealCode','Date','Amount','NA']
     # inserts new dataframe into individuals dataframe
-    indivs_df['RealCode'] = real_df['RealCode'].values
-    indivs_df.insert(8,'Date',real_df['Date'])
-    indivs_df.insert(9,'Amount',real_df['Amount'])
+    df['RealCode'] = real_df['RealCode'].values
+    df.insert(8,'Date',real_df['Date'])
+    df.insert(9,'Amount',real_df['Amount'])
 
-    return indivs_df
+    return df
 
 def cleanPac(filename):
     '''Cleans pacs txt file
@@ -70,13 +73,4 @@ def clean_pac_to_pac(data_file):
     df.columns = ['Cycle','FECRecNo','Filerid','DonorCmte','ContribLendTrans','City','State','Zip',
                   'FECOccEmp','Primcode','Date,Amount,RecipID','Party','Otherid','RecipCode',
                   'RecipPrimcode','Amend','Report','PG','Microfilm','Type','RealCode','Source']
-    return df
-
-def get_state(data_frame):
-    '''This function takes in a dataframe and pulls out only the rows that have
-    Colorado as the State value.'''
-
-    # pull out only the C0 individuals
-    df = data_frame.loc[data_frame['State'] == 'CO']
-
     return df
