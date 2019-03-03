@@ -4,7 +4,7 @@ import pandas as pd
 def clean_candidates(file):
     '''Cleans candidates text file. Outputs dataframe'''
     # read in text file to a dataframe
-    cands_df = pd.read_csv(file,sep='\|,\|',header=None)
+    cands_df = pd.read_csv(file,sep='\|,\|',header=None, engine='python')
 
     # creates the columns for candidates data
     cands_df.columns = ["Cycle", "FECTransID", "ContribID", "Contrib","RecipID",
