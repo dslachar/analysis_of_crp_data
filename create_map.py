@@ -77,3 +77,7 @@ def plot_map(pickle_file):
                                scope = scope)
     py.iplot(fig, filename='choropleth of political contributions by party and county in Colorado')
 
+    return fig
+
+
+
