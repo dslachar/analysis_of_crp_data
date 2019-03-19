@@ -1,7 +1,7 @@
 SEE FINAL PROJECT REPORT IN BINDER DEMO HERE:
 
 
-https://mybinder.org/v2/gh/dslachar/analysis_of_crp_data/master?filepath=Colorado's_Political_Landscape.ipynb
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dslachar/analysis_of_crp_data/master?filepath=FinalReport.ipynb)
 
 IF ABOVE LINK DOES NOT WORK, PLEASE REFERENCE THIS JUPYTER NOTEBOOK OF OUR FINAL REPORT WITH ALL CELLS RUN:
 
