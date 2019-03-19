@@ -1,3 +1,10 @@
+SEE FINAL PROJECT REPORT DEMO HERE:
+
+
+https://mybinder.org/v2/gh/dslachar/analysis_of_crp_data/master?filepath=Colorado's_Political_Landscape.ipynb
+
+
+
 # analysis_of_crp_data
 
 ## 1. Team Members
