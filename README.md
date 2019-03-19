@@ -5,7 +5,7 @@ https://mybinder.org/v2/gh/dslachar/analysis_of_crp_data/master?filepath=Colorad
 
 IF ABOVE LINK DOES NOT WORK, PLEASE REFERENCE THIS HTML OF OUR FINAL REPORT JUPYTER NOTEBOOK WITH ALL CELLS RUN:
 
-https://github.com/dslachar/analysis_of_crp_data/blob/master/FinalReport.html
+https://github.com/dslachar/analysis_of_crp_data/blob/master/FinalReport.ipynb
 
 
 
