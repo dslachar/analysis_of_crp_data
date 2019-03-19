@@ -1,5 +1,5 @@
-SEE FINAL PROJECT REPORT HERE
-DEMO:
+SEE FINAL PROJECT REPORT DEMO HERE:
+
 
 https://mybinder.org/v2/gh/dslachar/analysis_of_crp_data/master?filepath=Colorado's_Political_Landscape.ipynb
 
